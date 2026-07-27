@@ -1,0 +1,31 @@
+/* Tailwind v4 entry + DUHNAR tokens.
+   Order matters: tokens first so @theme is available to Tailwind. */
+@import "./../config/tokens.css";
+@import "tailwindcss";
+
+/* Base document styling — RTL, Arabic-first, ivory canvas.
+   Uses the runtime --duhnar-* tokens directly (not the Tailwind @theme
+   aliases), so admin theme changes flow through here too. */
+html {
+  background-color: var(--duhnar-color-background);
+  color: var(--duhnar-color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  font-family: var(--font-arabic), system-ui, sans-serif;
+}
+
+/* Respect users who prefer reduced motion (accessibility baseline). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
