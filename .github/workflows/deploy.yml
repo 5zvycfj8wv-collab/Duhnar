@@ -3,6 +3,7 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -33,6 +34,7 @@ jobs:
           cd duhnar-phase1-5
           npm install
           npm run build
+          echo "duhnar.com" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
