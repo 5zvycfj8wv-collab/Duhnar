@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies & Build
         run: |
           cd duhnar-phase1-5
-          npm ci
+          npm install
           npm run build
 
       - name: Upload artifact
